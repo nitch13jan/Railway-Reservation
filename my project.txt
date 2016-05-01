@@ -1,0 +1,1896 @@
+import java.util.*;
+import java.io.*;
+class Reservation
+{
+    int day,mon,yr;
+    String passengerName[] = new String[100];
+    int passengerAge[] = new int[100];
+    char passengerSex[] = new char[100];
+    char passengerBirthPreference[] = new char[100];
+    char checkSeniorCitizen[] = new char[100];
+    int birth[] = new int[100];
+    int classN;
+    String station;
+    int train;
+    int waiting=0;
+    String trainStr;
+    int trainNO ;
+    int waitingNO=0;
+    public static void main(String args[]) 
+    {
+        Scanner in=new Scanner(System.in);
+        Reservation obj=new Reservation();
+        obj.welcome();
+        obj.mainMenuInput();
+    }
+    
+    public void notice()
+    {
+        System.out.println("\t\t\t    Please take notice!!!\n");
+        for(long j=1;j<1000000000L;j++);
+        System.out.println("\t\t\t    Turn your Caps lock \'ON\'\n");
+        for(long j=1;j<1000000000L;j++);
+        System.out.println("\t\t\t   Input everyting in capital letters.\n");
+        for(long j=1;j<1000000000L;j++);
+        design('*');
+    }
+    
+    public void design(char a)
+    {
+        System.out.print("\t\t\t\t");
+        for(int i = 1;i<=20;i++)
+        {
+            for(int j=1;j<10000000;j++);
+            System.out.print(a);
+        }
+        System.out.println("");
+        System.out.println();
+        System.out.println();
+    }
+    
+    
+    public void welcome()
+    {
+        Scanner in=new Scanner(System.in);
+        design('*');
+        
+        String str1 = "Welcome to Jasidih Railway Station!!!\n";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+               
+        String str2 = "Here is available the latest railway reservation facility!!";
+        char[] ar2 = str2.toCharArray();
+        int ar2_len = ar2.length;
+        for(int i=0;i<ar2_len;i++)
+        {
+            System.out.print(ar2[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+              
+        String str3 = "\nYou can book your tickets here for a journey from here to New Delhi...";
+        char[] ar3 = str3.toCharArray();
+        int ar3_len = ar3.length;
+        for(int i=0;i<ar3_len;i++)
+        {
+            System.out.print(ar3[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+       
+        String str4 = "\nWe have a menu available for you.";
+        char[] ar4 = str4.toCharArray();
+        int ar4_len = ar4.length;
+        for(int i=0;i<ar4_len;i++)
+        {
+            System.out.print(ar4[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+       
+        String str5 = "\nPress enter to view the main menu.";
+        char[] ar5 = str5.toCharArray();
+        int ar5_len = ar5.length;
+        for(int i=0;i<ar5_len;i++)
+        {
+            System.out.print(ar5[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        String n = in.nextLine();
+        
+        if(n.equals(""))
+        {
+            mainMenu();
+        }
+        notice();
+    }
+    
+    public void mainMenu()
+    {
+        design('*');  
+        System.out.println("\t\t\t\t\tMAIN MENU");
+        System.out.println("\t\t\t\t\t_________\n");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\t\t\t\t   1. Enter the details\n");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\t\t\t\t   2. Edit the details\n");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\t\t\t\t   3. View the details\n");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\t\t\t\t   4. View your Status\n");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\t\t\t\t   5. Exit");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\n"); 
+        design('*');
+        
+    }
+    
+    public void mainMenuInput() 
+    {
+        Scanner in=new Scanner(System.in);
+        System.out.println("\nPlease tell us what you have decided to do..");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\nType the number corresponding to your choice..");
+        for(int j=1;j<500000000;j++);
+        System.out.println("And then press enter..\n");
+        for(int j=1;j<500000000;j++);
+        int n=in.nextInt();
+        switch(n)
+        {
+            case 1: dataEntry();
+                    break;
+            case 2: editDetails();
+                    break;
+            case 3: viewDetails();
+                    break;
+            case 4: viewStatus();
+                    break;
+            case 5: exit();
+                    break;
+            default: System.out.println("Sorry!! The choice is invalid.");
+            for(int j=1;j<500000000;j++);
+                     System.out.println("Enter a number from 1 to 5.");
+        } 
+    }
+    
+    public void dataEntry()
+    {
+        design('*');
+        Scanner in=new Scanner(System.in);
+        
+        String str1 = "\nYou can plan up your ticket here..\nPlease enter the details asked to book your ticket..";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        for(int j=1;j<100000000;j++);
+        System.out.println("\nEnter the date of travelling in day, month and year?");
+        System.out.println("Press enter after entering each item.");
+        System.out.println();
+        date();
+        for(int j=1;j<100000000;j++);
+        
+        String str2 = "\n Where are you travelling to?\n(Enter the station code.)(To get a list of station codes, type'G' and press enter)";
+        char[] ar2 = str2.toCharArray();
+        int ar2_len = ar2.length;
+        for(int i=0;i<ar2_len;i++)
+        {
+            System.out.print(ar2[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        inputStationCode();
+        System.out.println();
+        System.out.println();
+        design('*');
+        System.out.println();
+        System.out.println("Entry of the Data is over....\n\n");
+        System.out.println("To get back to the main menu, press enter.");
+        String n = in.nextLine();
+        if(n.equals(""))
+        {
+            mainMenu();
+            mainMenuInput();
+        }
+    }
+    
+    public void stationCode()
+    {
+        Scanner in=new Scanner(System.in);
+        System.out.println("\t\t\t\t Station name\t Station Code");
+        String str1 = "\t\t\t\t----------------------------------";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<10000000;j++);
+        }
+        System.out.println();
+                
+        System.out.print("\t\t\t\t");
+        String str2 = "1. Jasidih Jn.     JSME";
+        char[] ar2 = str2.toCharArray();
+        int ar2_len = ar2.length;
+        for(int i=0;i<ar2_len;i++)
+        {
+            System.out.print(ar2[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        System.out.print("\t\t\t\t");
+        String str3 = "2. New Delhi Jn.   NDLS";
+        char[] ar3 = str3.toCharArray();
+        int ar3_len = ar3.length;
+        for(int i=0;i<ar3_len;i++)
+        {
+            System.out.print(ar3[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        
+        
+        String str5 = "-----------------------------------------------------------------------------------------";
+        char[] ar5 = str5.toCharArray();
+        int ar5_len = ar5.length;
+        for(int i=0;i<ar5_len;i++)
+        {
+            System.out.print(ar5[i]);
+            for(int j=1;j<10000000;j++);
+        }
+        System.out.println();
+    }
+    
+    public void date()
+    {
+        Scanner in=new Scanner(System.in);
+        int k,c;
+        int d=in.nextInt();
+        int m=in.nextInt();
+        int y=in.nextInt();
+        do
+        {
+            if(y<2012)
+            {   
+                k=1;
+                c=0;
+            }
+            else if(y==2012 && m<9)
+            {
+                c=0;
+                k=1;
+            }
+            else if(y==2012 && m==9 && d<17)
+            {   c=0;
+                k=1;
+            }
+            else if( y==2013 && m>6)
+            {   c=1;
+                k=1;
+            }
+            else if( y > 2013)
+            {   c=1;
+                k=1;
+            }
+            else
+            {
+                switch(m)
+                {
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                    if(d>31 || d<1)
+                    c=2;
+                    else
+                    c=3;
+                    break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                    if(d>30 || d<1)
+                    c=2;
+                    else
+                    c=3;
+                    break;
+                    case 2:
+                    if(d>28 || d<1)
+                    c=2;
+                    else
+                    c=3;
+                    break;
+                    default:
+                    c=2;
+                }
+            }
+                
+            if(c==0)
+            {
+                System.out.println("Enter a valid date.. The date is already past.");
+                k=1;
+            }
+            else if(c==1)
+            {
+                System.out.println("You cannot book the tickets in more than 6 months advance.");
+                k=1;
+            }
+            else if(c==2)
+            {
+                System.out.println("Enter a valid date.");
+                k=1;
+            }
+            else
+            {
+                    k=2;
+            }
+        
+            
+            if(k==1)
+            {
+                System.out.println("Enter the date again.");
+                d=in.nextInt();
+                m=in.nextInt();
+                y=in.nextInt(); 
+            }
+            
+            if(k==2)
+            break;
+        }
+        while(k==1);
+        day=d;
+        mon=m;
+        yr=y;
+    }
+    
+    public void dateInWords()
+    {
+        String n;
+        if(day%10==1 && day/10 != 1)
+        n="st";
+        else if(day%10==2 && day/10 !=1)
+        n="nd";
+        else if(day%10==3 && day/10 != 1)
+        n="rd";
+        else
+        n="th";
+        String month[]={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+        String dateInWords = day + n + "-"+ month[mon-1]+"-"+yr;
+        String str1 =  dateInWords;
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+                   
+    }
+    
+    public void passengerDetails()
+    {
+        Scanner in=new Scanner(System.in);
+        design('=');
+        String str1 = "Enter no. of passengers? ";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        int check=0;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<1000000;j++);
+        }
+        System.out.println();
+                                //  printing with design..
+        System.out.println();
+        int n=in.nextInt();
+        classN=n;
+        String name;
+        for(int k=0;k<n;k++)
+            {
+            System.out.println();
+            design('*');
+            if(k==0)
+            System.out.println("Please fill up the details of the "+(k+1)+"st passenger...\n 1st Passenger \n -------------");
+            else if(k==1)
+            System.out.println("Please fill up the details of the "+(k+1)+"nd passenger...\n 2nd Passenger \n -------------");
+            else if(k==2)
+            System.out.println("Please fill up the details of the "+(k+1)+"rd passenger...\n 3rd Passenger \n -------------");
+            else
+            System.out.println("Please fill up the details of the "+(k+1)+"th passenger...\n "+(k+1)+"th Pasenger\n------------- ");
+            
+            String str2 = "Enter name? ";
+            char[] ar2 = str2.toCharArray();
+            int ar2_len = ar2.length;
+            for(int i=0;i<ar2_len;i++)
+            {
+                System.out.print(ar2[i]);
+                for(int j=1;j<1000000;j++);
+            }
+            passengerName[k]=in.next();   
+            
+            do
+            {
+               String str3 = "\nEnter age? ";
+               char[] ar3 = str3.toCharArray();
+               int ar3_len = ar3.length;
+               for(int i=0;i<ar3_len;i++)
+               {
+                   System.out.print(ar3[i]);
+                   for(int j=1;j<1000000;j++);
+                }
+                passengerAge[k]=in.nextInt(); 
+                if(passengerAge[k]>150)
+                {
+                    check=1;
+                    System.out.println("Such elderly persons are not allowed to travel in Indian Railways.");
+                    System.out.println("Enter the age again!");
+                }
+                else
+                if(passengerAge[k]<0)
+                {
+                    check=1;
+                    System.out.println("No extra charge for pregnant women.");
+                    System.out.println("Enter the age again!");
+                }
+                else
+                check=0;
+            }while(check==1);
+            
+            do
+            {
+                String str4 = "\nEnter sex? (Type M for Male and F for Female). ";
+                char[] ar4 = str4.toCharArray();
+                int ar4_len = ar4.length;
+                for(int i=0;i<ar4_len;i++)
+                {
+                    System.out.print(ar4[i]);
+                    for(int j=1;j<1000000;j++);
+                }
+                System.out.println();
+                name=in.next();
+                passengerSex[k]=name.charAt(0);
+                if( passengerSex[k]!='M' &&  passengerSex[k]!='F')
+                {
+                    check=1;
+                    System.out.println("Invalid Sex.\nEnter the sex again. "); 
+                }
+                else
+                check=0;
+            }
+            while(check==1);
+            
+            do
+            {
+                String str5 = "\nEnter your birth preference: \n "+"Type L for lower birth, M for middle, U for upper, S for side and P for side upper. ";;
+                char[] ar5 = str5.toCharArray();
+                int ar5_len = ar5.length;
+                for(int i=0;i<ar5_len;i++)
+                {
+                    System.out.print(ar5[i]);
+                    for(int j=1;j<1000000;j++);
+                }
+                name=in.next();
+                passengerBirthPreference[k]=name.charAt(0);
+                if( passengerBirthPreference[k]!='L' &&  passengerBirthPreference[k]!='M' && passengerBirthPreference[k]!='S' &&  passengerBirthPreference[k]!='U' && passengerBirthPreference[k]!='P' )
+                {
+                    check=1;
+                    System.out.println("Invalid birth preference.\nEnter the birth preference again. "); 
+                }
+                else
+                check=0;
+            } 
+            while(check==1);
+            
+            if(passengerAge[k] >= 60 && passengerSex[k]=='M' || passengerAge[k] >= 58 && passengerSex[k]=='F')
+            {
+                String str6 = "\nDo you want to avail the senior citizenship concession? "+"\n(Enter Y for yes , N for no.)";
+                char[] ar6 = str6.toCharArray();
+                int ar6_len = ar6.length;
+                for(int i=0;i<ar6_len;i++)
+                {
+                    System.out.print(ar6[i]);
+                    for(int j=1;j<1000000;j++);
+                }
+                name=in.next();
+                checkSeniorCitizen[k]=name.charAt(0);
+            }
+            else
+            {
+                checkSeniorCitizen[k]='N';
+            }
+        }
+    }
+    
+    public void jsme()
+    {
+        System.out.println("Sorry !! The boarding point and the destination point are the same!!\n Enter another station code. "); 
+        inputStationCode();
+    }
+    
+    public void ndls()
+    {
+        Scanner in = new Scanner(System.in);
+        design('*');
+        String str6 = "You are travelling to New Delhi.\n" + "Here are a list of trains going to New Delhi.\n\n";
+        char[] ar6 = str6.toCharArray();
+        int ar6_len = ar6.length;
+        for(int i=0;i<ar6_len;i++)
+        {
+            System.out.print(ar6[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println("\t\t\t\t\t Trains");
+        for(int j=1;j<50000000;j++);
+        System.out.println("\t\t\t\t\t--------");
+        System.out.println("\t\t\t\t1.Lal Qila Express ");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\t\t\t\t2.Poorva Express ");
+        for(int j=1;j<500000000;j++);
+        System.out.println("\t\t\t\t3.Abha Toofan Express ");
+        for(int j=1;j<500000000;j++);
+        for(int j=1;j<500000000;j++);
+        
+        String str5 = "To know the details, type the number adjacent to the Train's name..\n"+"And press enter...\n";
+        char[] ar5 = str5.toCharArray();
+        int ar5_len = ar5.length;
+        for(int i=0;i<ar5_len;i++)
+        {
+            System.out.print(ar5[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        int trainChoice = in.nextInt();
+        int choice = trainChoice(trainChoice);
+        if(choice==1)
+        {
+            System.out.println("Enter the train choice again.");
+            trainChoice = in.nextInt();
+            trainChoice(trainChoice);
+        }
+        else 
+        if(choice==0);
+        else
+        {
+            String str4 = "\n Where are you travelling to?\n(Enter the station code.)(To get a list of station codes, type'G' and press enter)";
+            char[] ar4 = str4.toCharArray();
+            int ar4_len = ar4.length;
+            for(int i=0;i<ar4_len;i++)
+            {
+                System.out.print(ar4[i]);
+                for(int j=1;j<50000000;j++);
+            }
+            inputStationCode();
+        }
+        train = trainChoice;
+    }
+    
+    public int trainChoice(int trainChoice)
+    {
+        Scanner in = new Scanner(System.in);
+        int choice=0;
+        if(trainChoice == 1)
+        ndlsLalQila();
+        else if(trainChoice == 2)
+        ndlsPoorva();
+        else if(trainChoice == 3)
+        ndlsAbhaToofan();
+        else
+        {
+            System.out.println("Invalid train choice!!");
+            for(int j=1;j<50000000;j++);
+            System.out.println("To enter your choice again, press 1 and then enter.");
+            for(int j=1;j<50000000;j++);
+            System.out.println("To change your destination, press any other number and then enter.");
+            for(int j=1;j<50000000;j++);
+            choice = in.nextInt();
+        }
+        return choice;
+    }
+            
+    public void ndlsLalQila()
+    {
+        design('$');
+        String str1 = "\n\nTrain no. \t Train name       \t Runs from source \t Runs on days ";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+               
+        String str2 = "--------- \t ----------       \t ---------------- \t ------------ ";
+        char[] ar2 = str2.toCharArray();
+        int ar2_len = ar2.length;
+        for(int i=0;i<ar2_len;i++)
+        {
+            System.out.print(ar2[i]);
+            for(int j=1;j<5000000;j++);
+        }
+        System.out.println();
+              
+        String str3 = "13111     \t Lal Quila Express\t     Kolkata      \t M T W T F S S";
+        char[] ar3 = str3.toCharArray();
+        int ar3_len = ar3.length;
+        for(int i=0;i<ar3_len;i++)
+        {
+            System.out.print(ar3[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        System.out.println();
+        String str4 = "========================================================================================\n\n\n";
+        char[] ar4 = str4.toCharArray();
+        int ar4_len = ar4.length;
+        for(int i=0;i<ar4_len;i++)
+        {
+            System.out.print(ar4[i]);
+            for(int j=1;j<5000000;j++);
+        }
+        System.out.println();
+       
+       
+        System.out.println("Sr. no. \t Stn name  \t Arrv. time \t Deprt. time \t Halt time \t Distance"); 
+        for(int j=1;j<50000000;j++);
+        System.out.println("------- \t --------  \t ---------- \t ----------- \t --------- \t --------");
+        for(int j=1;j<50000000;j++);
+        System.out.println("   1    \t Jasidih Jn\t    02:04   \t    02:09    \t  05:00 min\t   313 km");
+        for(int j=1;j<50000000;j++);
+        System.out.println("   2    \t   Delhi Jn\t    03:10   \t DESTINATION \t       -- \t   1526 km\n\n");  
+        confirmTrain();
+    }
+    
+    public void confirmTrain()
+    {
+        Scanner in = new Scanner(System.in);
+        design('$');
+        for(int j=1;j<2000000000;j++);
+        String str5 = "To book your tickets in this train , press enter. \n\nTo see the details of another train, type the number adjacent to the train's name and press enter. \n\nTo change your destination, type any other number and press enter.\n\n";
+        char[] ar5 = str5.toCharArray();
+        int ar5_len = ar5.length;
+        for(int i=0;i<ar5_len;i++)
+        {
+            System.out.print(ar5[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        String n = in.nextLine();
+        if(n.equals(""))
+        {
+            passengerDetails();
+        }
+        else if(Integer.parseInt(n)> 0 && Integer.parseInt(n) < 4)
+        {
+            switch(Integer.parseInt(n))
+            {
+                case 1: ndlsLalQila();break;
+                case 2: ndlsPoorva();break;
+                case 3: ndlsAbhaToofan();break;
+            }
+        }
+        else
+        {
+            String str4 = "\n Where are you travelling to?\n(Enter the station code.)(To get a list of station codes, type'G' and press enter)";
+            char[] ar4 = str4.toCharArray();
+            int ar4_len = ar4.length;
+            for(int i=0;i<ar4_len;i++)
+            {
+                System.out.print(ar4[i]);
+                for(int j=1;j<50000000;j++);
+            }
+            inputStationCode();
+        }
+    }
+    
+    public void ndlsPoorva()
+    {
+        design('$');
+        String str1 = "\n\nTrain no. \t Train name       \t Runs from source \t Runs on days ";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+               
+        String str2 = "--------- \t ----------       \t ---------------- \t ------------ ";
+        char[] ar2 = str2.toCharArray();
+        int ar2_len = ar2.length;
+        for(int i=0;i<ar2_len;i++)
+        {
+            System.out.print(ar2[i]);
+            for(int j=1;j<5000000;j++);
+        }
+        System.out.println();
+              
+        String str3 = "13111     \t Poorva Express\t     Kolkata      \t M T W T F S S";
+        char[] ar3 = str3.toCharArray();
+        int ar3_len = ar3.length;
+        for(int i=0;i<ar3_len;i++)
+        {
+            System.out.print(ar3[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        System.out.println();
+        String str4 = "========================================================================================\n\n\n";
+        char[] ar4 = str4.toCharArray();
+        int ar4_len = ar4.length;
+        for(int i=0;i<ar4_len;i++)
+        {
+            System.out.print(ar4[i]);
+            for(int j=1;j<5000000;j++);
+        }
+        System.out.println();
+       
+       
+        System.out.println("Sr. no. \t Stn name  \t Arrv. time \t Deprt. time \t Halt time \t Distance"); 
+        for(int j=1;j<50000000;j++);
+        System.out.println("------- \t --------  \t ---------- \t ----------- \t --------- \t --------");
+        for(int j=1;j<50000000;j++);
+        System.out.println("   1    \t Jasidih Jn\t    02:04   \t    02:09    \t  05:00 min\t   313 km");
+        for(int j=1;j<50000000;j++);
+        System.out.println("   2    \t   Delhi Jn\t    03:10   \t DESTINATION \t       -- \t   1526 km\n\n");  
+        confirmTrain();
+    }
+    
+    public void ndlsAbhaToofan()
+    {
+        design('$');
+        String str1 = "\n\nTrain no. \t Train name       \t Runs from source \t Runs on days ";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+               
+        String str2 = "--------- \t ----------       \t ---------------- \t ------------ ";
+        char[] ar2 = str2.toCharArray();
+        int ar2_len = ar2.length;
+        for(int i=0;i<ar2_len;i++)
+        {
+            System.out.print(ar2[i]);
+            for(int j=1;j<5000000;j++);
+        }
+        System.out.println();
+              
+        String str3 = "13111     \tAbha Toofan Express\t     Kolkata      \t M T W T F S S";
+        char[] ar3 = str3.toCharArray();
+        int ar3_len = ar3.length;
+        for(int i=0;i<ar3_len;i++)
+        {
+            System.out.print(ar3[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        System.out.println();
+        String str4 = "========================================================================================\n\n\n";
+        char[] ar4 = str4.toCharArray();
+        int ar4_len = ar4.length;
+        for(int i=0;i<ar4_len;i++)
+        {
+            System.out.print(ar4[i]);
+            for(int j=1;j<5000000;j++);
+        }
+        System.out.println();
+       
+       
+        System.out.println("Sr. no. \t Stn name  \t Arrv. time \t Deprt. time \t Halt time \t Distance"); 
+        for(int j=1;j<50000000;j++);
+        System.out.println("------- \t --------  \t ---------- \t ----------- \t --------- \t --------");
+        for(int j=1;j<50000000;j++);
+        System.out.println("   1    \t Jasidih Jn\t    02:04   \t    02:09    \t  05:00 min\t   313 km");
+        for(int j=1;j<50000000;j++);
+        System.out.println("   2    \t   Delhi Jn\t    03:10   \t DESTINATION \t       -- \t   1526 km\n\n");  
+        confirmTrain();
+    }
+    
+    public void inputStationCode()
+    {
+        Scanner in = new Scanner(System.in);
+        String n1 = in.next();
+        String n;
+        int c;
+        if(n1.equalsIgnoreCase("G"))
+        {
+             stationCode();
+             for(int j=1;j<500000000;j++);
+             System.out.print("Enter the Station code? ");
+             n= in.next();
+        }
+        else
+        {
+             n = n1;
+        }
+        do
+        {   c=0;            
+            if(n.equalsIgnoreCase("JSME"))
+                jsme();
+            else if(n.equalsIgnoreCase("NDLS"))
+                ndls();
+            else
+            {
+                c=1;
+                System.out.println("The station code is incorrect!! \nEnter the station code again!!");
+                stationCode();
+                n=in.next();
+            }
+        }while(c==1);
+        station=n;
+    }
+            
+    public void creatingTicket()
+    {
+        int lowerBirth1 = 1 , middleBirth1 = 2, upperBirth1 = 3, sideBirth = 7 ;
+        int lowerBirth2 = 4 , middleBirth2 = 5, upperBirth2 = 6, sideUpper = 8 ;
+        int x=0,y=0,z=0;
+        int countLB = 0, countMB = 0, countUB =0, countSB = 0, countSU=0;
+        for(int i=0;i<classN;i++)
+        {
+            char a = passengerBirthPreference[i];
+                switch (a)
+                {
+                case 'L':
+                case 'l':
+                if(x%2==0)
+                {
+                    if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1+=8;
+                        x++;
+                        countLB++;
+                    }
+                    else 
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2+=8;
+                        x++;
+                        countLB++;
+                    }
+                    else
+                    if(middleBirth1 <= 72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth2 <=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                    }
+                    else
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }
+                    else
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    waiting();
+                }
+                else
+                {
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2+=8;
+                        x++;
+                        countLB++;
+                    }
+                    else if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1+=8;
+                        x++;
+                        countLB++;
+                    }
+                    else
+                    if(middleBirth1 <= 72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth2 <=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                    }
+                    else
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }
+                    else
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    waiting();
+                }
+                break;
+                case 'M':
+                case 'm':
+                if(y%2==0)
+                {
+                    if(middleBirth1<=72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1+=8;
+                        y++;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth2 <=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                    }
+                    else
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }
+                    else
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    waiting();
+                }
+                else
+                {
+                    if(middleBirth2<=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2+=8;
+                        y++;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth1 <=72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                    }
+                    else
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }
+                    else
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    waiting();
+                }
+                break;
+                case 'U':
+                case 'u':
+                if(z%2==0)
+                {
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                        z++;
+                    }
+                    else 
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(middleBirth1<=72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1+=8;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth2 <=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }
+                    else
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    waiting();
+                }
+                else
+                {
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                        z++;
+                    }
+                    else
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(middleBirth1<=72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1+=8;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth2 <=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }
+                    else
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    waiting();
+                }
+                break;
+                case 'S':
+                case 's':
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }
+                    else 
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                    }
+                    else
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(middleBirth1<=72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1+=8;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth2 <=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2 += 8;
+                        countLB++;
+                    }                                     
+                    else
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    waiting();
+                break;
+                case 'P':
+                case 'p':
+                    if(sideUpper <= 72)
+                    {
+                        birth[i]=sideUpper;
+                        sideUpper+=8;
+                        countSU++;
+                    }
+                    else
+                    if(upperBirth2 <= 72)
+                    {
+                        birth[i]=upperBirth2;
+                        upperBirth2 += 8;
+                        countUB++;
+                    }
+                    else
+                    if(upperBirth1 <=72)
+                    {
+                        birth[i]=upperBirth1;
+                        upperBirth1 += 8;
+                        countUB++;
+                    }
+                    else 
+                    if(middleBirth1<=72)
+                    {
+                        birth[i]=middleBirth1;
+                        middleBirth1+=8;
+                        countMB++;
+                    }
+                    else
+                    if(middleBirth2 <=72)
+                    {
+                        birth[i]=middleBirth2;
+                        middleBirth2 += 8;
+                        countMB++;
+                    }
+                    else
+                    if(lowerBirth1 <= 72)
+                    {
+                        birth[i]=lowerBirth1;
+                        lowerBirth1 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(lowerBirth2 <= 72)
+                    {
+                        birth[i]=lowerBirth2;
+                        lowerBirth2 += 8;
+                        countLB++;
+                    }
+                    else
+                    if(sideBirth <= 72)
+                    {
+                        birth[i]=sideBirth;
+                        sideBirth += 8;
+                        countSB++;
+                    }                                   
+                    else
+                    waiting();
+                break;
+            }
+        }
+    }
+    
+    void waiting()
+    {
+        waiting=1; waitingNO++;
+    }
+    
+    void viewDetails()
+    {   
+        Scanner in = new Scanner(System.in);
+        design('*');
+        String str0 = "You have chosen to view the details..\n";
+        char[] ar0 = str0.toCharArray();
+        int ar0_len = ar0.length;
+        for(int i=0;i<ar0_len;i++)
+        {
+            System.out.print(ar0[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+               
+        design('*');
+        System.out.println();
+        System.out.print("\nThe date of the journey is ");
+        dateInWords();
+        System.out.println(); 
+        System.out.println();
+        String str1 = "The boarding station is Jasidih. ";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        System.out.println();       
+        String str2 = "The destination station is ";
+        char[] ar2 = str2.toCharArray();
+        int ar2_len = ar2.length;
+        for(int i=0;i<ar2_len;i++)
+        {
+            System.out.print(ar2[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        if(station.equalsIgnoreCase("NDLS"))
+        System.out.println("New Delhi. ");
+        else if(station.equalsIgnoreCase("HWH"))
+        System.out.println("Howrah. ");
+        System.out.println();
+        
+        String str3 = "The train you are travelling by is ";
+        char[] ar3 = str3.toCharArray();
+        int ar3_len = ar3.length;
+        for(int i=0;i<ar3_len;i++)
+        {
+            System.out.print(ar3[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        if(station.equalsIgnoreCase("NDLS"))
+        {
+            if(train==1)
+            {
+                System.out.println("Lal Qila Express.");
+            }
+            else if(train==2)
+            {
+                System.out.println("Poorva Express.");
+            }
+            else 
+            {
+                System.out.println("Abha Toofan Express.");
+            }
+        }
+        else if(station.equalsIgnoreCase("HWH"))
+        {
+            
+        }
+        System.out.println();
+        System.out.println();
+        String str4 = "Here are the details of the passengers :\n";
+        char[] ar4 = str4.toCharArray();
+        int ar4_len = ar4.length;
+        for(int i=0;i<ar4_len;i++)
+        {
+            System.out.print(ar4[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+       
+        String str5 = "Name    Age    Sex      Birth Preference    Senior Citizen\n"+"--------------------------------------------------------";
+        char[] ar5 = str5.toCharArray();
+        int ar5_len = ar5.length;
+        for(int i=0;i<ar5_len;i++)
+        {
+            System.out.print(ar5[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();        
+        
+        for(int i = 0;i<classN ;i++)
+        {
+            
+            System.out.print(passengerName[i] + "    " + passengerAge[i]);
+            if(passengerSex[i] == 'M' || passengerSex[i] == 'm')
+            {
+                System.out.print("    Male");
+            }
+            else
+            {
+                System.out.print("  Female");
+            }
+            switch(passengerBirthPreference[i])
+            {
+                case 'L':
+                case 'l':
+                System.out.print("          Lower");
+                break;
+                case 'U':
+                case 'u':
+                System.out.print("          Upper");
+                break;
+                case 'M':
+                case 'm':
+                System.out.print("          Middle");
+                break;
+                case 's':
+                case 'S':
+                System.out.print("          Side");
+                break;
+                case 'P':
+                case 'p':
+                System.out.print("          Side Upper");
+                break;
+            }
+            switch(checkSeniorCitizen[i])
+            {
+                case 'Y':System.out.println("      Yes");
+                break;
+                case 'N':System.out.println("      No");
+                break;
+            }
+        } 
+        design('*');
+        System.out.println();
+        
+        String str6 = "Display of the Data is over....\n\nTo get back to the main menu, press enter.";
+        char[] ar6 = str6.toCharArray();
+        int ar6_len = ar6.length;
+        for(int i=0;i<ar6_len;i++)
+        {
+            System.out.print(ar6[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        String n = in.nextLine();
+        if(n.equals(""))
+        {
+            mainMenu();
+            mainMenuInput();
+        }
+    }
+    
+    public void editDetails()
+    {
+        Scanner in = new Scanner(System.in);
+        int loop=1;
+        design('*');
+        String str1 = "You have chosen to edit the details..\n";
+        char[] ar1 = str1.toCharArray();
+        int ar1_len = ar1.length;
+        for(int i=0;i<ar1_len;i++)
+        {
+            System.out.print(ar1[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        String str0 = "Please enter the passenger number whose details you want to edit..\n";
+        char[] ar0 = str0.toCharArray();
+        int ar0_len = ar0.length;
+        for(int i=0;i<ar0_len;i++)
+        {
+            System.out.print(ar0[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        int n = in.nextInt()-1;
+        passengerEditing(n);
+        
+        while(loop>0)
+        {
+            String str3 = "Any more details to edit?\nEnter Y for yes and N for no.. ";
+            char[] ar3 = str3.toCharArray();
+            int ar3_len = ar3.length;
+            for(int i=0;i<ar3_len;i++)
+            {
+                System.out.print(ar3[i]);
+                for(int j=1;j<50000000;j++);
+            }
+            System.out.println();
+            
+            char a = in.next().charAt(0);
+            if(a=='N' || a == 'n')
+            {
+                design('*');
+                System.out.println();
+                
+                String str4 = "Editing of the Data is over....\n\n\nTo get back to the main menu, press enter.";
+                char[] ar4 = str4.toCharArray();
+                int ar4_len = ar4.length;
+                for(int i=0;i<ar4_len;i++)
+                {
+                    System.out.print(ar4[i]);
+                    for(int j=1;j<50000000;j++);
+                }
+                System.out.println();
+                
+                String str = in.nextLine();
+                if(str.equals(""))
+                {
+                    mainMenu();
+                    mainMenuInput();
+                }
+                break;
+            }
+            else 
+            if(a=='Y' || a=='y')
+            {
+                String str4 = "Want to edit the details of the same passenger?\nEnter 0 for \'YES\' or the passenger number for editing the details of another passenger...";
+                char[] ar4 = str4.toCharArray();
+                int ar4_len = ar4.length;
+                for(int i=0;i<ar4_len;i++)
+                {
+                    System.out.print(ar4[i]);
+                    for(int j=1;j<50000000;j++);
+                }
+                System.out.println();
+                System.out.println();
+                
+                int n1= in.nextInt()-1;
+                if(n1 == -1)
+                {
+                    passengerEditing(n);
+                }
+                else
+                if(n1 < classN)
+                {
+                     passengerEditing(n1);
+                }
+            }
+            else
+            {
+                    System.out.println("Invalid choice!!"); 
+            }
+        }
+    }
+    
+    public void passengerEditing(int n)
+    {
+        Scanner in = new Scanner(System.in);
+        String str0 = "\nWhich detail of this passenger do you want to edit? \n\n 1. Name \n 2. Age \n 3. Sex \n 4.Birth Preference";
+        char[] ar0 = str0.toCharArray();
+        int ar0_len = ar0.length;
+        for(int i=0;i<ar0_len;i++)
+        {
+            System.out.print(ar0[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        int ch = in.nextInt();
+        switch(ch)
+        {
+            case 1:
+            System.out.println("\nEnter the name of the passenger.");
+            passengerName[n] = in.next();
+            break;
+            case 2:
+            System.out.println("\nEnter the age of the passenger.");
+            passengerAge[n] = in.nextInt();
+            if(passengerAge[n] <= 60)
+            checkSeniorCitizen[n] = 'N';
+            else 
+            checkSeniorCitizen[n] = 'Y';
+            break;
+            case 3:
+             System.out.println("\nEnter the sex of the passenger.");
+             passengerSex[n]= in.next().charAt(0);
+             break;
+             case 4:
+             System.out.println("\nEnter the Birth Preference of the passenger.");
+             passengerBirthPreference[n]= in.next().charAt(0);
+             break;
+        }
+    }
+    
+    public void exit()
+    {
+        design('*');
+        design('*');
+        String str0 = " We hope you had a successful booking.\n\n We wish you a very happy journey...\n\n Come again soon...";
+        char[] ar0 = str0.toCharArray();
+        int ar0_len = ar0.length;
+        for(int i=0;i<ar0_len;i++)
+        {
+            System.out.print(ar0[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        design('*');
+        design('*');
+           
+    }
+    
+    public void viewStatus()
+    {
+        Scanner in = new Scanner(System.in);
+        String str0 = " Your ticket is going to be booked..\n\n Please go through your details once again.. \n\n No changes can be made after booking.. \n\n To view your details again, press spacebar once and then enter..\n\n To book your ticket , just press enter.. ";
+        char[] ar0 = str0.toCharArray();
+        int ar0_len = ar0.length;
+        for(int i=0;i<ar0_len;i++)
+        {
+            System.out.print(ar0[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();
+        
+        String n = in.nextLine();
+        if(n.equals(""))
+        {
+            System.out.println("\t\t\t\tYour ticket is being booked..");
+            System.out.print("\t\t\t\t      Please wait!\n\t\t\t");
+            for(int i=1;i<=18;i++)
+            {
+                System.out.print(" #");
+                for(int j=1;j<500000000;j++);
+                for(int j=1;j<500000000;j++);
+                for(int j=1;j<500000000;j++);
+                for(int j=1;j<100000000;j++);
+            }
+            System.out.println("\n\t\t\t\t Your ticket is booked..");
+            System.out.println("\t\t\t\t Press enter to view your status..");
+            String n1 = in.nextLine();
+            if(n1.equals(""))
+            {
+                creatingTicket();
+                
+                String str5 = "Name    Age    Sex    Status   Birth No.\n"+"---------------------------------------------------";
+                char[] ar5 = str5.toCharArray();
+                int ar5_len = ar5.length;
+                for(int i=0;i<ar5_len;i++)
+                {
+                    System.out.print(ar5[i]);
+                    for(int j=1;j<50000000;j++);
+                }
+                System.out.println();   
+                
+                for(int i = 0;i<classN ;i++)
+                {
+                    
+                    System.out.print(passengerName[i] + "    " + passengerAge[i] );
+                    if(passengerSex[i] == 'M' || passengerSex[i] == 'm')
+                    {
+                        System.out.print("    Male");
+                    }
+                    else
+                    {
+                        System.out.print("  Female");
+                    }
+                    if(waiting == 0)
+                    System.out.print("     CONFIRMED");
+                    else
+                    System.out.print("       WAITING" + waitingNO);
+                    System.out.println( "    "+ birth[i]);
+                } 
+                viewTicket();
+            }
+            }
+            else if(n.charAt(0)==' ')
+            viewDetails();
+    }
+    
+    public void viewTicket()
+    {
+        Scanner in = new Scanner(System.in);
+        long TRANSID = 0004154666L , PNR = 2335886329L ;
+        String CLASS = "SL";
+        int DISTANCE = 0,child=0,adult=0;
+        String QUOTA ="GEN",stationStr="";
+        if(station.equals("NDLS"))
+        {
+            DISTANCE = 2184;
+        }
+        else
+        if(station.equals("HWH"))
+        {
+            DISTANCE = 280;
+        }
+        System.out.print("\n\n\t\t\t\t ");
+        
+        String str5 = "ELECTRONIC RESERVATION SLIP \n \t\t\t\t -----------------------------\n\n";
+        char[] ar5 = str5.toCharArray();
+        int ar5_len = ar5.length;
+        for(int i=0;i<ar5_len;i++)
+        {
+            System.out.print(ar5[i]);
+            for(int j=1;j<50000000;j++);
+        }
+        System.out.println();   
+        
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Transaction ID :"+ TRANSID+"                        \t\t\t PNR No.: "+PNR+"          \t\t\t Class :" + CLASS);
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        if(station.equalsIgnoreCase("NDLS"))
+        {
+            if(train==1)
+            {
+                trainStr = "Lal Qila Express"; trainNO =13112  ;
+            }
+            else if(train==2)
+            {
+                trainStr = "Poorva Express."; trainNO = 12382;
+            }
+            else 
+            {
+                trainStr = "Abha Toofan Express.";trainNO = 13007 ;
+            }
+        }
+        else if(station.equalsIgnoreCase("HWH"))
+        {
+            
+        }
+        System.out.print("Train number & name:"+ trainNO + "/" + trainStr +"\t\t\t Date Of Journey:");
+        dateInWords();
+        System.out.println("\t\t\t Distance:" + DISTANCE + "KM");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        Date ob = new Date();
+        System.out.print("Date of Booking: 17th-Sep-2012"+"                        \t\t\t Date of Boarding: ");
+        dateInWords();
+        System.out.println(" \t\t\t Quota :" + QUOTA);
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.print("From: Jasidih(JSME)\t\t\t\t To :");
+        if(station.equals("NDLS"))
+        stationStr = "New Delhi";
+        else if(station.equals("HWH"))
+        stationStr = "Howrah";
+        System.out.print(stationStr+"("+station+")" );
+        for(int i=0;i<classN;i++)
+        {
+            if (passengerAge[i]<=12)
+            child++;
+            else
+            adult++;
+        }
+        System.out.println("\t\t\t\t Adult:"+adult + " Child:"+ child);
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.print("Boarding: Jasidih \t\t\t\t Resv. upto :");
+        System.out.print(stationStr+ "\t\t\t\t Total Fare: Rs. " );
+        int fare = fare(child,adult);
+        System.out.println(fare+".00");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.print("Scheduled Dept. " );
+        if(train == 1)
+        {
+            System.out.println("18:40 ");
+        }
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\t\t *Dept. time printed on the ERS is liable to change. New time table from 01-01-2013.");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Sr. No. \t\t Name \t\t Age \t\t Sex \t\t Booking status / Coach No. / Seat no.");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        
+        for(int i = 0;i<classN ;i++)
+        {
+                    System.out.print((i+1)+"\t\t\t");
+                    System.out.print(passengerName[i] + "     " + passengerAge[i] );
+                    if(passengerSex[i] == 'M' || passengerSex[i] == 'm')
+                    {
+                        System.out.print("       Male");
+                    }
+                    else
+                    {
+                        System.out.print("     Female");
+                    }
+                    if(waiting == 0)
+                    {
+                        System.out.print("        CONFIRM / S5 / ");
+                        System.out.println( "    "+ birth[i]);
+                    }
+                    else
+                    System.out.println("          WAITING / "+ waitingNO);
+                    System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        } 
+        System.out.println("Agent Details:");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Corporate Name: Nitin Choudhary and co.\t\t\t  Agent Name: Prayank \t\t\t  Email ID: clilchamp@gmail.com");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Address : Castairs town,Deoghar        \t\t\t                     \t\t\t Phone no.:9263416320");     
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\t\t * IRCTC service charge - Rs. 15.00 \n\t\t * Agents charge - Rs. 10.00 (for sleeper classes)");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------\n\n");
+        System.out.println("Press enter to proceed.");
+        String last = in.nextLine();
+        if(last.equals(""))
+        {
+            String str6 = "Display of the Ticket is over....\n\nGet a Printout of it.\n\nTo get back to the main menu, press enter.";
+            char[] ar6 = str6.toCharArray();
+            int ar6_len = ar6.length;
+            for(int i=0;i<ar6_len;i++)
+            {
+                System.out.print(ar6[i]);
+                for(int j=1;j<50000000;j++);
+            }
+            System.out.println();
+        
+            String n = in.nextLine();
+            if(n.equals(""))
+            {
+                mainMenu();
+                mainMenuInput();
+            }
+        }
+    }
+    
+    public int fare(int child, int adult)
+    {
+        int fare=0;
+        if(station.equals("NDLS"))
+        {
+            fare = child* 100 + adult*200;
+        }
+        else if(station.equals("HWH"))
+        {
+            fare = child* 50 + adult*100;
+        }
+        return fare;
+    }
+}
+
